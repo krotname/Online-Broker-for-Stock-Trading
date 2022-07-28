@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  work-exchange:
+    build: .
+    image: work/exchange:v1
+    ports:
+      - "8081:8081"

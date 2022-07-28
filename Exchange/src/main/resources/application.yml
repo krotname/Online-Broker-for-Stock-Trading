@@ -11,7 +11,6 @@ spring:
     admin:
       client:
         url: http://localhost:8080
-# Enable logging
 logging:
   level:
     root: INFO

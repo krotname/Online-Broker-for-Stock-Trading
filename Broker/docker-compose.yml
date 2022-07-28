@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  work-broker:
+    build: .
+    image: work/broker:v1
+    ports:
+      - "8082:8082"
