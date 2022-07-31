@@ -1,6 +1,34 @@
 version: "3.9"
 
 services:
+  rabbit:
+    image: rabbitmq:3.9.21
+    environment:
+      RABBITMQ_DEFAULT_USER: "root"
+      RABBITMQ_DEFAULT_PASS: "JzMggN"
+    volumes:
+      - ./init:/etc/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  db:
+    container_name: postgres
+    image: postgres:14.4
+    environment:
+      POSTGRES_DB: "broker"
+      POSTGRES_USER: "broker"
+      POSTGRES_PASSWORD: "JzMggN"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - .:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
   work-exchange:
     build: .
     image: work/exchange:v1
