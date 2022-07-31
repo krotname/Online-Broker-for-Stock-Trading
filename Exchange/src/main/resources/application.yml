@@ -16,15 +16,15 @@ spring:
   rabbitmq:
     port: 5672
     host: 'localhost'
-    username: "root"
-    password: "JzMggN"
+    username: rabbitmq
+    password: rabbitmq
   queue:
     name: queue-test
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: broker
-    password: JzMggN
-    url: jdbc:postgresql://localhost:5432/broker
+    username: "exchange"
+    password: "JzMggN1"
+    url: jdbc:postgresql://localhost:5432/exchange
   jpa:
     show-sql: true
     generate-ddl: true

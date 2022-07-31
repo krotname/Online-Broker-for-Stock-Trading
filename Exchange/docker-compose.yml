@@ -1,26 +1,36 @@
 version: "3.9"
 
 services:
-  rabbit:
-    image: rabbitmq:3.9.21
+  rabbitmq:
+    image: rabbitmq:3.7-management
+    hostname: rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: "root"
-      RABBITMQ_DEFAULT_PASS: "JzMggN"
+      RABBITMQ_ERLANG_COOKIE: SWQOKODSQALRPCLNMEQG
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+      RABBITMQ_DEFAULT_VHOST: /
     volumes:
-      - ./init:/etc/rabbitmq/
+      - ./docker/rabbitmq:/var/lib/rabbitmq
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - 5672:5672
+      - 5671:5671
+      - 15672:15672
+      - 15671:15671
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
   db:
-    container_name: postgres
+    container_name: postgres-exchange
     image: postgres:14.4
     environment:
-      POSTGRES_DB: "broker"
-      POSTGRES_USER: "broker"
-      POSTGRES_PASSWORD: "JzMggN"
+      POSTGRES_DB: "exchange"
+      POSTGRES_USER: "exchange"
+      POSTGRES_PASSWORD: "JzMggN1"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - .:/var/lib/postgresql/data
+      - ./exchange/:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: unless-stopped

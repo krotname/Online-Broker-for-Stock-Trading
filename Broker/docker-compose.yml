@@ -1,6 +1,23 @@
 version: "3.9"
 
 services:
+  db:
+    container_name: postgres-broker
+    image: postgres:14.4
+    environment:
+      POSTGRES_DB: "broker"
+      POSTGRES_USER: "broker"
+      POSTGRES_PASSWORD: "JzMggN2"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./broker/:/var/lib/postgresql/data
+    ports:
+      - "5444:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
   work-broker:
     build: .
     image: work/broker:v1

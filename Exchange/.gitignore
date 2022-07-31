@@ -1,6 +1,7 @@
 HELP.md
 target/
 pgdata/
+docker/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
