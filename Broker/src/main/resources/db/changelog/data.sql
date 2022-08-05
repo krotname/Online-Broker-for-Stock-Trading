@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset InsertIngenres_sql:4
+--changeset InsertIngenres_sql:12
 
 INSERT INTO genres (name)
 VALUES ('Фантастика ');

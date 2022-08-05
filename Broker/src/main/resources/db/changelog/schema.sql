@@ -1,39 +1,47 @@
 --liquibase formatted sql
---changeset CreateTables_sql:5
+--changeset CreateTables_sql:11
 
-CREATE TABLE books
+CREATE TABLE IF NOT EXISTS books
 (
-    id BIGINT primary key AUTO_INCREMENT,
+    id BIGINT primary key,
     name VARCHAR NOT NULL,
     author_id BIGINT,
     genre_id BIGINT
 );
 
-CREATE TABLE authors
+CREATE TABLE IF NOT EXISTS authors
 (
-    id BIGINT primary key AUTO_INCREMENT,
+    id BIGINT primary key,
     name VARCHAR NOT NULL
 );
 
-CREATE TABLE genres
+CREATE TABLE IF NOT EXISTS genres
 (
-    id BIGINT primary key AUTO_INCREMENT,
+    id BIGINT,
     name VARCHAR NOT NULL
 );
 
-CREATE TABLE comments
+CREATE TABLE IF NOT EXISTS comments
 (
-    id BIGINT primary key AUTO_INCREMENT,
+    id BIGINT primary key,
     content VARCHAR NOT NULL,
     book_id BIGINT NOT NULL
 );
 
-CREATE TABLE users
+CREATE TABLE IF NOT EXISTS users
 (
-    id BIGINT primary key AUTO_INCREMENT,
+    id BIGINT primary key,
     login VARCHAR NOT NULL,
     password VARCHAR NOT NULL,
     role VARCHAR NOT NULL
 );
+--
+-- create sequence authors_id_seq;
+--
+-- alter table authors
+--     alter column id set default nextval('public.authors_id_seq'::regclass);
+--
+-- alter sequence authors_id_seq owned by authors.id;
+
 
 
