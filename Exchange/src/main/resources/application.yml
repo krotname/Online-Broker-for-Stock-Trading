@@ -39,7 +39,6 @@ spring:
 logging:
   level:
     root: INFO
-    com.deft: INFO
 
 management:
   endpoints:
