@@ -20,11 +20,8 @@ import java.util.Objects;
 public class AppUser {
     @Id
     private long id;
-    private String username;
+    private String userName;
     private long money;
-    @OneToMany
-    @ToString.Exclude
-    private List<AppBond> bonds;
 
     @Override
     public boolean equals(Object o) {

@@ -1,11 +1,11 @@
 package name.krot.exchange.entity;
 
+import com.google.common.base.Objects;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -14,17 +14,17 @@ import java.util.Objects;
 @Entity
 public class AppBond {
     @Id
-    private long bondCode;
-    private String bondName;
-    private String bondType;
+    private long id;
+    private String name;
+    private String bondType; // todo  тип данных
     private String bondPrice;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         AppBond appBond = (AppBond) o;
-        return Objects.equals(bondCode, appBond.bondCode);
+        return id == appBond.id && Objects.equal(name, appBond.name) && Objects.equal(bondType, appBond.bondType) && Objects.equal(bondPrice, appBond.bondPrice);
     }
 
     @Override

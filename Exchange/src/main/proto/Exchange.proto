@@ -3,6 +3,17 @@ package name.krot.grpc;
 
 service SayHello {
   rpc SayHello (Request) returns (Reply) {}
+  rpc GetCourse (RequestCourse) returns (ReplyCourse) {}
+}
+
+message RequestCourse {
+  int64 id = 1;
+}
+
+message ReplyCourse {
+  int64 id = 1;
+  int64 price = 3;
+  string name = 5;
 }
 
 message Request {

@@ -1,18 +1,15 @@
 package name.krot.broker.service;
 
 import io.grpc.StatusRuntimeException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import name.krot.broker.entity.DtoCourse;
+import name.krot.grpc.Exchange;
 import name.krot.grpc.SayHelloGrpc;
-import name.krot.grpc.SayHelloOuterClass;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.awt.print.Book;
 
 @RestController
 @Slf4j
@@ -23,25 +20,20 @@ public class HelloServiceTest {
 
     @GetMapping("/{id}")
     public @ResponseBody
-    Book getBook(@PathVariable int id) {
+    DtoCourse getBook(@PathVariable int id) {
         log.info(String.valueOf(id));
-        log.info("Will try to greet " + id + " ...");
-        SayHelloOuterClass.Request request = SayHelloOuterClass.Request.newBuilder().setName(String.valueOf(id)).build();
-        SayHelloOuterClass.Reply response;
+        Exchange.RequestCourse request = Exchange.RequestCourse.newBuilder().setId(id).build();
+        Exchange.ReplyCourse response = null;
         try {
-            response = blockingStub.sayHello(request);
+            response = blockingStub.getCourse(request);
+            log.info("Price: " + response.getPrice());
         } catch (StatusRuntimeException e) {
             log.warn("RPC failed: {0}", e.getStatus());
         }
-        //log.info("Greeting: " + response.getMessage());
-        try {
-            response = blockingStub.sayHello(request);
-            System.out.println(response);
-        } catch (StatusRuntimeException e) {
-            log.warn("RPC failed: {0}", e.getStatus());
-        }
-//        log.info("Greeting: " + response.getMessage());
-
-        return new Book();
+        return DtoCourse.builder()
+                .name(response.getName())
+                .price(response.getPrice())
+                .id(response.getId())
+                .build();
     }
 }

@@ -14,20 +14,20 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-public class AppUser {
+public class AppBoundHolder {
     @Id
     private long id;
     private String username;
-    @OneToMany
-    @ToString.Exclude
-    private List<AppBond> bonds;
+    //@OneToMany // todo аргументы  и мэни ту мэни
+   // @ToString.Exclude
+   // private List<AppBond> bonds;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        AppUser appUser = (AppUser) o;
-        return Objects.equals(id, appUser.id);
+        AppBoundHolder appBoundHolder = (AppBoundHolder) o;
+        return Objects.equals(id, appBoundHolder.id);
     }
 
     @Override
