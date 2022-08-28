@@ -1,8 +1,6 @@
 package name.krot.broker.entity;
 
-import com.google.common.base.Objects;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

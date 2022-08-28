@@ -19,7 +19,7 @@ spring:
     password: "JzMggN1"
     url: jdbc:postgresql://localhost:5432/exchange
   jpa:
-    show-sql: true
+    show-sql: false
     generate-ddl: true
     hibernate:
       ddl-auto: validate

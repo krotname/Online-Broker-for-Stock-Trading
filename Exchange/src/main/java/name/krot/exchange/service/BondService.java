@@ -8,21 +8,17 @@ import name.krot.exchange.entity.AppCourse;
 import name.krot.grpc.ExchangeOuterClass;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class BondService {
 
     private final CourseRepository courseRepository;
     private final BondRepository bondRepository;
+
     public ExchangeOuterClass.ReplyCourse getCurrentPrice(String bondCode) {
 
-        System.out.println(bondCode);
         AppBond appBond = bondRepository.findAppBondByBondCode(bondCode);
-        System.out.println(appBond);
         AppCourse appCourse = courseRepository.findAppCourseByBondType(appBond);
-        System.out.println(appCourse);
 
         return ExchangeOuterClass.ReplyCourse.
                 newBuilder().
@@ -32,11 +28,11 @@ public class BondService {
                 build();
     }
 
-    public long sellbond(AppBond appBond, long count) {
-        return  0L;
+    public long sellBond(AppBond appBond, long count) {
+        return 0L;
     }
 
-    public long buybond(AppBond appBond, long count) {
-        return  0L;
+    public long buyBond(AppBond appBond, long count) {
+        return 0L;
     }
 }

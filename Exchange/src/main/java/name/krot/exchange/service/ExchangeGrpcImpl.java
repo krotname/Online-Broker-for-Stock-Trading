@@ -1,7 +1,6 @@
 package name.krot.exchange.service;
 
 import io.grpc.stub.StreamObserver;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import name.krot.grpc.ExchangeOuterClass;
@@ -17,7 +16,7 @@ public class ExchangeGrpcImpl extends name.krot.grpc.ExchangeGrpc.ExchangeImplBa
     @Override
     public void getCourse(ExchangeOuterClass.RequestCourse request, StreamObserver<ExchangeOuterClass.ReplyCourse> responseObserver) {
 
-        log.info(""+request.getName());
+        log.info("" + request.getName());
 
         ExchangeOuterClass.ReplyCourse reply = bondService.getCurrentPrice(request.getName());
 

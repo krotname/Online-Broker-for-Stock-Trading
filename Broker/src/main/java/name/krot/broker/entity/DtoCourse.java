@@ -1,6 +1,7 @@
 package name.krot.broker.entity;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 @Data
 @Builder

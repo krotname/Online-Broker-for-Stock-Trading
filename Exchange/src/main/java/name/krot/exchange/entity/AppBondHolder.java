@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @EqualsAndHashCode
 @Table(name = "bond_holder")
-public class AppbondHolder {
+public class AppBondHolder {
     @Id
     private long id;
     private long userId;

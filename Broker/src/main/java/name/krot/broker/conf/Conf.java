@@ -2,9 +2,9 @@ package name.krot.broker.conf;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import name.krot.grpc.ExchangeGrpc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import name.krot.grpc.ExchangeGrpc;
 
 @Configuration
 public class Conf {
