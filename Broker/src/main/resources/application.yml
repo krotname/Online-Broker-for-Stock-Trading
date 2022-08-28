@@ -13,23 +13,16 @@ spring:
     admin:
       client:
         url: http://localhost:8080
-  rabbitmq:
-    port: 5672
-    host: "localhost"
-    username: "newadmin"
-    password: "newadmin"
-  queue:
-    name: queue-test
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: "postgres"
-    password: "1111"
-    url: jdbc:postgresql://localhost:5432/broker
+    username: "broker"
+    password: "JzMggN2"
+    url: jdbc:postgresql://localhost:5444/broker
   jpa:
     show-sql: true
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     database: postgresql
   sql:
     init:
@@ -39,7 +32,6 @@ spring:
 logging:
   level:
     root: INFO
-    com.deft: INFO
 
 management:
   endpoints:

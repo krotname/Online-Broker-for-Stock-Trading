@@ -2,7 +2,7 @@ package name.krot.exchange.scheduler;
 
 import org.springframework.scheduling.annotation.Scheduled;
 
-public class SchedulerBounds {
+public class SchedulerBonds {
     @Scheduled(fixedDelay = 1000)
     public void scheduleFixedDelayTask() {
         System.out.println(

@@ -1,13 +1,15 @@
 syntax = "proto3";
 package name.krot.grpc;
 
-service SayHello {
-  rpc SayHello (Request) returns (Reply) {}
-  rpc GetCourse (RequestCourse) returns (ReplyCourse) {}
+service Exchange {
+  rpc sellbond (Request) returns (Reply) {}
+  rpc buybond (Request) returns (Reply) {}
+  rpc getCourse (RequestCourse) returns (ReplyCourse) {}
 }
 
 message RequestCourse {
   int64 id = 1;
+  string name = 2;
 }
 
 message ReplyCourse {

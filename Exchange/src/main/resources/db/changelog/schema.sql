@@ -1,39 +1,30 @@
 --liquibase formatted sql
---changeset CreateTables_sql:1
+--changeset CreateTables_sql:215
 
-CREATE TABLE books
+CREATE TABLE IF NOT EXISTS bond_holder
 (
     id BIGINT primary key,
-    name VARCHAR NOT NULL,
-    author_id BIGINT,
-    genre_id BIGINT
+    user_id BIGINT
 );
 
-CREATE TABLE authors
+CREATE TABLE IF NOT EXISTS bond_type
 (
     id BIGINT primary key,
-    name VARCHAR NOT NULL
+    bond_code VARCHAR NOT NULL,
+    bond_name VARCHAR NOT NULL
 );
 
-CREATE TABLE genres
+CREATE TABLE IF NOT EXISTS bond_balance
+(
+    bond_holder_id BIGINT primary key,
+    balance BIGINT,
+    bond_type_id BIGINT
+);
+
+CREATE TABLE IF NOT EXISTS course
 (
     id BIGINT primary key,
-    name VARCHAR NOT NULL
+    bond_type_id BIGINT,
+    bond_current_course BIGINT NOT NULL
 );
-
-CREATE TABLE comments
-(
-    id BIGINT primary key,
-    content VARCHAR NOT NULL,
-    book_id BIGINT NOT NULL
-);
-
-CREATE TABLE users
-(
-    id BIGINT primary key,
-    login VARCHAR NOT NULL,
-    password VARCHAR NOT NULL,
-    role VARCHAR NOT NULL
-);
-
 

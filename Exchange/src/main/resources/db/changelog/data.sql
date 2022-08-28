@@ -1,75 +1,56 @@
 --liquibase formatted sql
---changeset InsertIngenres_sql:2
+--changeset InsertIngenres_sql:228
 
-INSERT INTO genres (name)
-VALUES ('Фантастика ');
+INSERT INTO bond_holder (id, user_id)
+VALUES (1, 1);
 
-INSERT INTO genres (name)
-VALUES ('Детектив');
+INSERT INTO bond_holder (id, user_id)
+VALUES (2, 2);
 
-INSERT INTO genres (name)
-VALUES ('Любовный роман');
+INSERT INTO bond_holder (id, user_id)
+VALUES (3, 3);
 
-INSERT INTO genres (name)
-VALUES ('Исторический роман');
 
-INSERT INTO genres (name)
-VALUES ('Компьютерные науки');
+INSERT INTO bond_type (id,  bond_code, bond_name)
+VALUES (1, 'MGNT', 'МАГНИТ');
 
---changeset InsertInauthors_sql:3
+INSERT INTO bond_type (id,  bond_code, bond_name)
+VALUES (2, 'AKRN', 'АКРОН');
 
-INSERT INTO authors (name)
-VALUES ('Бернар Миньер');
+INSERT INTO bond_type (id,  bond_code, bond_name)
+VALUES (3, 'ROSB', 'РОСБАНК');
 
-INSERT INTO authors (name)
-VALUES ('Лорет Энн Уайт');
+INSERT INTO bond_type (id,  bond_code, bond_name)
+VALUES (4, 'KMAZ', 'КАМАЗ');
 
-INSERT INTO authors (name)
-VALUES ('Майк Омер');
+INSERT INTO bond_type (id,  bond_code, bond_name)
+VALUES (5, 'LKOH', 'ЛУКОЙЛ');
 
-INSERT INTO authors (name)
-VALUES ('Борис Акунин');
 
-INSERT INTO authors (name)
-VALUES ('Мария Адольфссон');
+INSERT INTO course (id, bond_type_id,  bond_current_course)
+VALUES (1, 1, 5459);
 
-INSERT INTO authors (name)
-VALUES ('Бхаргава Адитья');
+INSERT INTO course (id, bond_type_id,  bond_current_course)
+VALUES (2, 2, 17470);
 
---changeset InsertInBooks_sql:4
+INSERT INTO course (id, bond_type_id,  bond_current_course)
+VALUES (3, 3, 112);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Долина', 1, 2);
+INSERT INTO course (id, bond_type_id,  bond_current_course)
+VALUES (4, 4, 90);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Мост Дьявола', 2, 2);
+INSERT INTO course (id, bond_type_id,  bond_current_course)
+VALUES (5, 4, 4115);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Глазами жертвы', 3, 2);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Просто', 4, 2);
+INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)
+VALUES (1, 100, 5);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Штормовое предупреждение', 5, 2);
+INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)
+VALUES (2, 200, 4);
 
-INSERT INTO books (name, author_id, genre_id)
-VALUES ('Грокаем Алгоритмы', 6, 5);
+INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)
+VALUES (3, 130, 3);
 
-INSERT INTO comments (book_id, content)
-VALUES (6, 'Доступно про рекурсию!');
-
-INSERT INTO comments (book_id, content)
-VALUES (1, 'Захватывающе!');
-
-INSERT INTO comments (book_id, content)
-VALUES (1, 'Очень Захватывающе!');
-
-INSERT INTO users (login, password, role)
-VALUES ('user', 'user', 'USER');
-
-INSERT INTO users (login, password, role)
-VALUES ('admin', '1', 'ADMIN');
-
-INSERT INTO users (login, password, role)
-VALUES ('manager', '2', 'MANAGER');
+INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)
+VALUES (4, 400, 1);

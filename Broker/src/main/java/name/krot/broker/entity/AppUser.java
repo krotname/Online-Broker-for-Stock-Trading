@@ -21,7 +21,7 @@ public class AppUser {
     @Id
     private long id;
     private String userName;
-    private long money;
+    private long currency;
 
     @Override
     public boolean equals(Object o) {
