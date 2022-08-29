@@ -3,7 +3,7 @@ package name.krot.broker.controllers;
 import io.grpc.StatusRuntimeException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import name.krot.broker.entity.DtoCourse;
+import name.krot.broker.dto.DtoCourse;
 import name.krot.grpc.ExchangeGrpc;
 import name.krot.grpc.ExchangeOuterClass;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class CourseController {
 
     @GetMapping("/{name}")
     public @ResponseBody
-    DtoCourse getBook(@PathVariable String name) {
+    DtoCourse getCourse(@PathVariable String name) {
         log.info(name);
         ExchangeOuterClass.RequestCourse request = ExchangeOuterClass.RequestCourse.newBuilder().setName(name).build();
         ExchangeOuterClass.ReplyCourse response = null;

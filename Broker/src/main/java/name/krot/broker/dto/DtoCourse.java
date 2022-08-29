@@ -1,4 +1,4 @@
-package name.krot.broker.entity;
+package name.krot.broker.dto;
 
 import lombok.Builder;
 import lombok.Data;

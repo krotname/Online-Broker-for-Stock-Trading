@@ -16,7 +16,7 @@ public class ExchangeGrpcImpl extends name.krot.grpc.ExchangeGrpc.ExchangeImplBa
     @Override
     public void getCourse(ExchangeOuterClass.RequestCourse request, StreamObserver<ExchangeOuterClass.ReplyCourse> responseObserver) {
 
-        log.info("" + request.getName());
+        log.info(request.getName());
 
         ExchangeOuterClass.ReplyCourse reply = bondService.getCurrentPrice(request.getName());
 
