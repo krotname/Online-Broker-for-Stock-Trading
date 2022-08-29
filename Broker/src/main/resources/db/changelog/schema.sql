@@ -4,13 +4,14 @@
 CREATE TABLE IF NOT EXISTS users
 (
     id BIGINT primary key,
-    login VARCHAR,
-    password VARCHAR
+    login VARCHAR(255),
+    password VARCHAR(255),
+    role VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS balance
 (
-    userId BIGINT primary key,
+    user_id BIGINT primary key,
     balance BIGINT,
     currency VARCHAR(255)
 );
