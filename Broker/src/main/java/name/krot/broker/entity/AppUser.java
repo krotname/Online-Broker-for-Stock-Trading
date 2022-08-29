@@ -1,13 +1,13 @@
 package name.krot.broker.entity;
 
-import lombok.*;
-import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Hibernate;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Objects;
 
 @Getter
 @Setter

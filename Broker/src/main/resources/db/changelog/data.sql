@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset InsertRow_sql:307
+--changeset InsertRow_sql:2
 
 INSERT INTO users (id, login, password, role)
 VALUES (1, 'petrov', 'petrov', 'USER');

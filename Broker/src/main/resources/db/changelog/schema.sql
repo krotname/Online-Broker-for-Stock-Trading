@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset CreateTables_sql:304
+--changeset CreateTables_sql:1
 
 CREATE TABLE IF NOT EXISTS users
 (

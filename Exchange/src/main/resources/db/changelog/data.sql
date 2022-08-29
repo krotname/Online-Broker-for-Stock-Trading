@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset InsertRow_sql:229
+--changeset InsertRow_sql:2
 
 INSERT INTO bond_holder (id, user_id)
 VALUES (1, 1);

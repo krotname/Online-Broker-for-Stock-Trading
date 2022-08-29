@@ -46,12 +46,4 @@ public class BondService {
                 .setName(appBond.getBondName())
                 .build();
     }
-
-    public long sellBond(AppBond appBond, long count) {
-        return 0L;
-    }
-
-    public long buyBond(AppBond appBond, long count) {
-        return 0L;
-    }
 }
