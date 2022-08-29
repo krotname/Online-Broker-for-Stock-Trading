@@ -16,6 +16,14 @@ public class UserInfoController {
     @GetMapping("/{name}")
     public @ResponseBody
     DtoUserInfo getUserInfo(@PathVariable String name) {
+        log.info(name);
         return userInfoService.getUserInfo(name);
+    }
+
+    @GetMapping("all/{name}")
+    public @ResponseBody
+    DtoUserInfo getUserAllInfo(@PathVariable String name) {
+        log.info(name);
+        return userInfoService.getAllUserInfo(name);
     }
 }

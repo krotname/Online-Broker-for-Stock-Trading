@@ -23,4 +23,14 @@ public class ExchangeGrpcImpl extends name.krot.grpc.ExchangeGrpc.ExchangeImplBa
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void getBond(ExchangeOuterClass.Request request, StreamObserver<ExchangeOuterClass.Reply> responseObserver) {
+        log.info(String.valueOf(request.getOwnerId()));
+
+        ExchangeOuterClass.Reply reply = bondService.getBondInfo(request.getOwnerId());
+
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 }

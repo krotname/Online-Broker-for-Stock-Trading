@@ -2,8 +2,9 @@ syntax = "proto3";
 package name.krot.grpc;
 
 service Exchange {
-  rpc sellbond (Request) returns (Reply) {}
-  rpc buybond (Request) returns (Reply) {}
+  rpc sellBond (Request) returns (Reply) {}
+  rpc buyBond (Request) returns (Reply) {}
+  rpc getBond (Request) returns (Reply) {}
   rpc getCourse (RequestCourse) returns (ReplyCourse) {}
 }
 
