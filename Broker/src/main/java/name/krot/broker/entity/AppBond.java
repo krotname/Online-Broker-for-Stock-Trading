@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Entity
+//@Entity
 @EqualsAndHashCode
 public class AppBond {
     @Id

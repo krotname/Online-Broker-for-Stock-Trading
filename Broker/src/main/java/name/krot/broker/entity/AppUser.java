@@ -14,7 +14,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Entity
+//@Entity
 public class AppUser {
     @Id
     private long id;

@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset InsertIngenres_sql:228
+--changeset InsertIngenres_sql:229
 
 INSERT INTO bond_holder (id, user_id)
 VALUES (1, 1);
@@ -40,7 +40,7 @@ INSERT INTO course (id, bond_type_id,  bond_current_course)
 VALUES (4, 4, 90);
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
-VALUES (5, 4, 4115);
+VALUES (5, 5, 4115);
 
 
 INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)
