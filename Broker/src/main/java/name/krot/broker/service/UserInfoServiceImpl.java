@@ -26,18 +26,16 @@ public class UserInfoServiceImpl implements UserInfoService{
 
     public DtoUserInfo getUserInfo(String login) {
         AppUser appUser = userRepository.findAppUserByLogin(login);
-        AppBalance appBalance = balanceRepository.findAppBalanceByUserId(appUser.getId());
         return DtoUserInfo.builder()
                 .login(appUser.getLogin())
-                .currency(appBalance.getCurrency())
-                .balance(appBalance.getBalance())
+                .currency(appUser.getBalance().getCurrency())
+                .balance(appUser.getBalance().getBalance())
                 .build();
     }
 
     public DtoUserInfo getAllUserInfo(String login) {
         AppUser appUser = userRepository.findAppUserByLogin(login);
         log.info(String.valueOf(appUser));
-        AppBalance appBalance = balanceRepository.findAppBalanceByUserId(appUser.getId());
 
         ExchangeOuterClass.Request request = ExchangeOuterClass.Request
                 .newBuilder()
@@ -54,8 +52,8 @@ public class UserInfoServiceImpl implements UserInfoService{
 
         return DtoUserInfo.builder()
                 .login(appUser.getLogin())
-                .currency(appBalance.getCurrency())
-                .balance(appBalance.getBalance())
+                .currency(appUser.getBalance().getCurrency())
+                .balance(appUser.getBalance().getBalance())
                 .bonds(List.of(DtoBond.builder()
                         .bondName(response.getName())
                         .bondCount(response.getCount())

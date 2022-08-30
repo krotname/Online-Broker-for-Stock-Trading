@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -15,10 +14,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 @EqualsAndHashCode
-public class AppUser {
+public class AppUser implements Serializable {
     @Id
     private long id;
     private String login;
     private String password;
     private String role;
+    @OneToOne(optional = false)
+    @JoinColumn(name = "id", nullable = false)
+    private AppBalance balance;
 }

@@ -36,7 +36,7 @@ public class SchedulerBonds {
             appCourse.setBondCurrentCourse(newCourse);
             courseRepository.save(appCourse);
         });
-        log.debug("Updated course: " + all);
+        log.info("Updated course: " + all);
 
     }
 }

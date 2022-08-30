@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset InsertRow_sql:2
+--changeset InsertRow_sql:3
 
 INSERT INTO bond_holder (id, user_id)
 VALUES (1, 1);
@@ -28,19 +28,19 @@ VALUES (5, 'LKOH', 'ЛУКОЙЛ');
 
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
-VALUES (1, 1, 5459);
+VALUES (1, 1, 545900);
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
 VALUES (2, 2, 17470);
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
-VALUES (3, 3, 112);
+VALUES (3, 3, 11200);
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
-VALUES (4, 4, 90);
+VALUES (4, 4, 9000);
 
 INSERT INTO course (id, bond_type_id,  bond_current_course)
-VALUES (5, 5, 4115);
+VALUES (5, 5, 41150);
 
 
 INSERT INTO bond_balance (bond_holder_id,  balance, bond_type_id)

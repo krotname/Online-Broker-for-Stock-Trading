@@ -1,6 +1,9 @@
 package name.krot.exchange.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,18 +13,16 @@ import java.io.Serializable;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@EqualsAndHashCode
 @Table(name = "course")
 public class AppCourse implements Serializable {
 
     @Id
-    private Long id;
+    private long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "bond_type_id")
     private AppBond bondType;
 
     @Column(name = "bond_current_course", nullable = false)
     private Long bondCurrentCourse;
-
 }
