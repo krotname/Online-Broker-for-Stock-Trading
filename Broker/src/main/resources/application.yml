@@ -19,7 +19,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: "broker"
     password: "JzMggN2"
-    url: jdbc:postgresql://localhost:5432/broker
+    url: jdbc:postgresql://localhost:5444/broker
   jpa:
     show-sql: false
     generate-ddl: true
