@@ -20,7 +20,7 @@ public class UserInfoController {
         return userInfoService.getUserInfo(name);
     }
 
-    @GetMapping("userinfo/all/{name}")
+    @GetMapping("alluserinfo/{name}")
     public DtoUserInfo getUserAllInfo(@PathVariable String name) {
         log.info(name);
         return userInfoService.getAllUserInfo(name);
