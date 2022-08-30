@@ -1,0 +1,38 @@
+syntax = "proto3";
+package name.krot.grpc;
+
+service Exchange {
+  rpc sellBond (Request) returns (Reply) {}
+  rpc buyBond (Request) returns (Reply) {}
+  rpc getBond (Request) returns (Reply) {}
+  rpc getCourse (RequestCourse) returns (ReplyCourse) {}
+}
+
+message RequestCourse {
+  int64 id = 1;
+  string name = 2;
+}
+
+message ReplyCourse {
+  int64 id = 1;
+  int64 price = 3;
+  string name = 5;
+}
+
+message Request {
+  int64 order_id = 1;
+  int64 count = 2;
+  int64 price = 3;
+  int64 owner_id = 4;
+  string name = 5;
+  string owner = 6;
+}
+
+message Reply {
+  int64 order_id = 1;
+  int64 count = 2;
+  int64 price = 3;
+  int64 owner_id = 4;
+  string name = 5;
+  string owner = 6;
+}

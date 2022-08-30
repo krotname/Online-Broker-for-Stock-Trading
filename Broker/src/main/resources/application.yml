@@ -1,0 +1,44 @@
+app:
+  exchange-url: "127.0.0.1:7777"
+server:
+  port: 8081
+grpc:
+  port: 7777
+  enable-reflection: true
+security:
+  basic:
+    enabled: false
+spring:
+  application:
+    name: exchange
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: "broker"
+    password: "JzMggN2"
+    url: jdbc:postgresql://localhost:5444/broker
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+  sql:
+    init:
+      platform: postgres
+      continue-on-error: true
+      mode: never
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    health:
+      show-details: always
