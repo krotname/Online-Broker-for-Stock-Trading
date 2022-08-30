@@ -1,3 +1,5 @@
+app:
+  exchange-url: "127.0.0.1:7777"
 server:
   port: 8081
 grpc:
@@ -17,7 +19,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: "broker"
     password: "JzMggN2"
-    url: jdbc:postgresql://localhost:5444/broker
+    url: jdbc:postgresql://localhost:5432/broker
   jpa:
     show-sql: false
     generate-ddl: true
